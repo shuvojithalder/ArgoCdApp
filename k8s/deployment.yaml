@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-app
+  namespace: argocd-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-app
+  template:
+    metadata:
+      labels:
+        app: argocd-app
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/shuvojithalder/argocdapp:latest
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8000
+            initialDelaySeconds: 5
