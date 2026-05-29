@@ -7,11 +7,11 @@ commonLabels:
   app.kubernetes.io/managed-by: argocd
 
 resources:
-  - namespace.yaml
-  - deployment.yaml
-  - service.yaml
+- namespace.yaml
+- deployment.yaml
+- service.yaml
 
 images:
-  - name: argocd-app
-    newName: ghcr.io/shuvojithalder/argocdapp
-    newTag: 2aeb84fb0617229404749708ad33f082fa130e78
+- name: argocd-app
+  newName: ghcr.io/shuvojithalder/argocdapp
+  newTag: 3794abb61fea28f77ed3efc546634ad1224e3ae6
