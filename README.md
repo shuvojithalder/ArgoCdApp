@@ -113,6 +113,13 @@ kubectl port-forward svc/argocd-app 8080:80 -n argocd-app
 curl http://localhost:8080/health
 ```
 
+## ImagePullBackOff on EC2 / Kind
+
+GHCR images from GitHub Actions are **private** by default. Either:
+
+- Make the package **public**: [GitHub Packages](https://github.com/shuvojithalder?tab=packages) → **argocdapp** → Change visibility, **or**
+- Create pull secret on the cluster: **[docs/fix-imagepullbackoff.md](docs/fix-imagepullbackoff.md)**
+
 ## Customize
 
 - Change `replicas`, resources, or probes in `k8s/base/deployment.yaml`.

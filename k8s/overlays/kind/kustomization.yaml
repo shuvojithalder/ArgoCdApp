@@ -7,3 +7,5 @@ resources:
 patches:
   - path: service-nodeport.yaml
   - path: deployment-replicas.yaml
+  # Uncomment if GHCR package is private (see docs/fix-imagepullbackoff.md):
+  # - path: patches/ghcr-pull-secret.yaml
