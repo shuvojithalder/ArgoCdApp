@@ -13,5 +13,5 @@ resources:
 
 images:
   - name: argocd-app
-    newName: ghcr.io/OWNER/ArgoCdApp
+    newName: ghcr.io/shuvojithalder/argocdapp
     newTag: latest
