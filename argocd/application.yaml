@@ -1,0 +1,26 @@
+# Apply once on the cluster where Argo CD runs (adjust repoURL and path).
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    # Replace with your GitHub repository URL
+    repoURL: https://github.com/shuvojithalder/ArgoCdApp.git
+    targetRevision: main
+    path: k8s/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+  revisionHistoryLimit: 3

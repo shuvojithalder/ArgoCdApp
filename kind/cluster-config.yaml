@@ -1,0 +1,12 @@
+# Use on EC2: kind create cluster --config kind/cluster-config.yaml
+# Maps NodePort 30080 on the Kind node to EC2 host port 30080.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: argocd
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30080
+        hostPort: 30080
+        listenAddress: "0.0.0.0"
+        protocol: TCP
