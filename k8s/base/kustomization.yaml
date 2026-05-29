@@ -14,4 +14,4 @@ resources:
 images:
 - name: argocd-app
   newName: ghcr.io/shuvojithalder/argocdapp
-  newTag: 3794abb61fea28f77ed3efc546634ad1224e3ae6
+  newTag: 053a8228855370e6f33205d295cf3fc419c58ff6
